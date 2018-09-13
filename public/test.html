@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+  
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer" >
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //按钮单击时执行
+//      $("#testAjax").click(function(){
+//            //取Ajax返回结果
+//            //为了简单，这里简单地从文件中读取内容作为返回数据
+//            //alert("zzc")
+//            htmlobj=$.ajax({
+//            	             //url:"http://39.106.38.110/qq?sName=600030",
+//                           //url:"http://api.money.126.net/data/feed/0601398",
+//                           url:"http://127.0.0.1/qq?sName=zc",
+//                           dataType:"html",
+//  												 type:"get",
+//                           jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//                           success: function(data) {
+//                           	  // obj=htmlobj.responseText;
+//                           	// obj1=JSON.stringify(data);
+//                           	// var jstr=JSON.parse(obj1);
+//                           	 //obj1 = obj1.substr(1,obj1.length-2);
+//                           	 // data = JSON.parse(data);
+//                           	alert(data.business.Stock[0].name);
+//                           //	 alert(data.bussiness.Stock[0].name);
+//                           	 // json1 = eval("("+data+")"); 
+//												     		//	alert(obj1.bussiness.Stock[0].name);  
+//                              
+//                           },
+//                           
+//                           error:function(XMLHttpRequest, textStatus, errorThrown) {
+//													       alert(XMLHttpRequest.status);
+//													       alert(XMLHttpRequest.readyState);
+//													         alert(textStatus);
+//													       alert(errorThrown);
+//													       alert(data);
+//                           }, 
+//                            async:false});
+//                            
+////                        $.getJSON("http://127.0.0.1:9000/q?sName=600030",function(data){  
+////              							alert("getJSON");
+////                           });   
+//                            
+//                            
+//             //显示Ajax返回结果
+//             //var htmlobj="<ul><li>"+data.business.Stock[0].name+"</li><li></li></ul>";
+//             //alert(_proto)
+//              $("#myDiv").html(htmlobj.responseText);
+//               $("#myDiv").show();
+//            //$("#myDiv").html(htmlobj);
+//       
+//      }
+//        );
+        
+       $("#testAjax1").click(function(){
+        	$("#myDiv").hide();
+        });
+       
+       $("#testAjax2").keyup(function(){
+       	        
+       	        var urlstr="http://127.0.0.1/qq?sName=";
+       	        urlstr=urlstr.concat(this.value);
+               // alert(urlstr);
+                htmlobj=$.ajax({
+              	             //url:"http://39.106.38.110/qq?sName=600030",
+                             //url:"http://api.money.126.net/data/feed/0601398",
+                             url:urlstr,
+                             dataType:"html",
+    												 type:"get",
+                             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                             success: function(data) {
+                             	  // obj=htmlobj.responseText;
+                             	// obj1=JSON.stringify(data);
+                             	// var jstr=JSON.parse(obj1);
+                             	 //obj1 = obj1.substr(1,obj1.length-2);
+                             	 // data = JSON.parse(data);
+                             	// alert(htmlobj.responseText);
+                             	   $("#myDiv").html(htmlobj.responseText);
+                								 $("#myDiv").show();
+                             //	 alert(data.bussiness.Stock[0].name);
+                             	 // json1 = eval("("+data+")"); 
+												     		//	alert(obj1.bussiness.Stock[0].name);  
+                                
+                             },
+                             
+                             error:function(XMLHttpRequest, textStatus, errorThrown) {
+													       alert(XMLHttpRequest.status);
+													       alert(XMLHttpRequest.readyState);
+													         alert(textStatus);
+													       alert(errorThrown);
+													       alert(data);
+                             }, 
+                              async:true});
+//       $("myDiv").animate({
+// 			  left:'-250px',
+//        opacity:'0.5',
+//        height:'150px',
+//        width:'+=350px'
+//  		});
+       });  //end ("#testAjax2").keyup
+       
+       
+    }); 
+    
+    
+   
+</script>    
+
+
+
+</head>
+    <body>
+     <!--
+     	作者：zhaozichuan@sina.com
+     	时间：2017-10-24
+     	描述：
+      <div id="myDiv" style="background:#98bf21;height:100px;width:200px;position:absolute;"><h2>通过 AJAX 改变文本</h2></div>
+     -->
+        <input id="testAjax2" name="input1" style="position: relative;"></input>
+        <button id="testAjax" type="button" style="position: relative;" >Ajax改变内容</button>
+        
+        <button id="testAjax1" type="button" style="position: relative;">隐藏</button>
+        <div id="myDiv" style="background:#98bf21;width:200px;position:relative;"><h2>通过 AJAX 改变文本</h2></div>
+     
+    
+    </body>
+</html>

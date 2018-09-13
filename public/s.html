@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自选股</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<style>
+			.title{
+				margin: 20px 15px 7px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+		</style>
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+    $(function(){
+       $("#testAjax1").click(function(){
+        	$("#myDiv").hide();
+        });
+       
+       $("#testAjax2").keyup(function(){
+       	        var reg= /^[A-Za-z0-9]+$/;
+       	        
+                if(reg.test(this.value)==false)
+                { //判断是否符合正则表达式
+                // 	alert("请输入字母或者数字！");
+                  return null;
+                 
+                 } 
+       	        
+       	        var urlstr="/qq?sName=";
+       	        urlstr=urlstr.concat(this.value);
+               // alert(urlstr);
+                htmlobj=$.ajax({
+              	             //url:"http://39.106.38.110/qq?sName=600030",
+                             //url:"http://api.money.126.net/data/feed/0601398",
+                             url:urlstr,
+                             dataType:"html",
+    												 type:"get",
+                             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                             success: function(data) {
+                             	   $("#myDiv").html(htmlobj.responseText);
+                								 $("#myDiv").show();
+                                
+                             },
+                             
+                             error:function(XMLHttpRequest, textStatus, errorThrown) {
+													       alert(XMLHttpRequest.status);
+													       alert(XMLHttpRequest.readyState);
+													         alert(textStatus);
+													       alert(errorThrown);
+													       alert(data);
+                             }, 
+                              async:true});
+       });  //end ("#testAjax2").keyup
+       
+       
+    }); 
+    
+    
+   
+     </script>   
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">普通列表</h1>
+		</header>
+		<div class="mui-content">
+			<div class="title">
+				<input id="testAjax2" name="input1" style="position: relative;"></input>
+		        <button id="testAjax1" type="button" style="position: relative;">隐藏</button>
+		        <div id="myDiv" style="background:lightyellow;width:200px;position:relative;display:none"><h2>===================</h2></div>
+			</div>
+			<ul class="mui-table-view">
+				 <li class="mui-table-view-cell">Item 1</li>
+		         <li class="mui-table-view-cell">Item 2</li>
+		         <li class="mui-table-view-cell">Item 3</li>
+			</ul>
+			
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
+</html>

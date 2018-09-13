@@ -1,0 +1,195 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+body{
+	background-color: #F5F5F5;
+	font: 12px/1.5 arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+	height: 502px;
+}
+.g-gray{
+	color: #979797;
+}
+.g-green{
+	color: #579C69;
+}
+.g-red{
+	color: #F8485E;
+}
+.g-black{
+	color: #000;
+}
+.g-hide{
+	display: none;
+}
+.g-mod{
+	background-color: #FFF;
+	margin-top: 5px;
+
+}
+
+.content-header{
+	margin-bottom: 5px;
+	background-color: #FFF;
+	text-align: center;
+	min-height: 88px;
+}
+
+.content-header .data-info{
+	height: 88px;
+}
+.content-header .item{
+	float: left;
+}
+.content-header .i-l{
+	width: 35.5%;
+}
+.content-header .i-l h5{
+	font-size: 26px;
+	font-weight: 300;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.content-header .i-l span{
+	font-size: 12px;
+}
+
+.content-header .i-r{
+	width: 21.5%;
+	font-size: 10px;
+	color: #979797;
+}
+.content-header .i-r-item{
+	margin-top: 5px;
+}
+.content-header .i-r .data{
+	color: #858483;
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+.content-content{
+	background-color: #FFF;
+}
+#chart-cont{
+	height: 314px;
+	position: relative;
+}
+.content-content .chart-item{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #FFF;
+	z-index: 1;
+	overflow: hidden;
+}
+.content-content .chart-item.active{
+	display: block;
+	z-index: 1000;
+}
+#chart-tab{
+	height: 40px;
+	overflow: none;
+}
+#chart-tab .d-tab-item{
+	width: 20%;
+	height: 100%;
+	line-height: 40px;
+	float: left;
+	background-color: #FFF;
+	font-size: 12px;
+	color: #979797;
+	text-align: center;
+	-webkit-appearance: none;
+}
+#chart-tab .d-tab-item.active{
+	color: #000;
+}
+#chart-tab .d-tab-item.active span{
+	display: inline-block;
+	min-width: 38px;
+	line-height: 15px;
+	border: 1px solid #A1A1A1;
+	border-radius: 13px;
+	padding: 5px;
+}
+#chart-tab .d-tab-item.hover span{
+	border-color: #F8485E;
+	color: #F8485E;
+}
+.content-content iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+/*盘口*/
+#d-chart-handicap{
+	background-color: #FFF;
+	width: 100%;
+}
+#d-chart-handicap .handicap-cont{
+	border-top: 1px solid #DFDFDF;
+	border-left: 1px solid #DFDFDF;
+	border-right: 1px solid #DFDFDF;
+	overflow: auto;
+	margin: 5px;
+}
+#d-chart-handicap .p50{
+	width: 50%;
+}
+#d-chart-handicap .b{
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF;
+	overflow: auto;
+}
+#d-chart-handicap .b .p50{
+	text-indent: 2px;
+}
+#d-chart-handicap .l{
+	float: left;
+	position: relative;
+}
+#d-chart-handicap .l:after {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	content: "";
+	display: block;
+	width: 1px;
+	height: 100%;
+	background-color: #DFDFDF;
+}
+#d-chart-handicap .r{
+	float: right;
+	position: relative;
+}
+#d-chart-handicap .l .out .handicap-one-data:last-child{
+	border-bottom: 1px solid #DFDFDF;
+}
+#d-chart-handicap .r .handicap-one-data:last-child{
+	border-bottom: 1px solid #FFF;
+}
+#d-chart-handicap .handicap-one-data{
+	padding: 1px 2px;
+}
+
+.content-footer .l{
+	float: left;
+}
+.content-footer .r{
+	float: right;
+}
+.master{
+	height: 50px;
+	padding: 0 10px;
+	line-height: 50px;
+	font-size: 12px;
+}
+.master .l span{
+	margin-right: 7px;
+	font-size: 18px;
+}
+.master .r span{
+	margin-left: 3px;
+}

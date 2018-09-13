@@ -1,0 +1,97 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+body{
+	background-color: #F5F5F5;
+	font: 12px/1.5 arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+}
+.g-gray{
+	color: #BFBFBF;
+}
+.g-green{
+	color: #A5C8AE;
+}
+.g-red{
+	color: #F8485E;
+}
+.g-hide{
+	display: none;
+}
+.g-s24{
+	font-size: 24px;
+}
+
+.content-header{
+	margin-bottom: 5px;
+	background-color: #FFF;
+	text-align: left;
+}
+.content-header .header-cont{
+	padding: 15px 10px;
+	min-height: 54px;
+}
+.content-header h5{
+	color: #858585;
+	font-size: 14px;
+	font-weight: 300;
+	margin-bottom: 15px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	width: 100%; 
+}
+.content-content{
+	height: 145px;
+}
+.content-content iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.content-footer{
+	background-color: #FFF;
+	border-top: 1px solid #969696;
+	margin-top: 5px;
+	height: 142px;
+}
+.content-footer .item{
+	overflow: auto;
+	height: 70px;
+}
+.content-footer .item:first-child{
+	
+}
+.content-footer .income{
+	border-bottom: 1px solid #969696;
+	
+}
+.content-footer .total{
+	position: relative;
+}
+.content-footer .total:after{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	content: "";
+	display: block;
+	width: 1px;
+	height: 100%;
+	background-color: #DFDFDF;
+}
+.content-footer .in-item{
+	float: left;
+	width: 25%;
+	text-align: center;
+	margin: 8px 0;
+}
+.content-footer .in-item span{
+	font-size: 12px;
+}
+.content-footer .in-item p{
+	font-size: 14px;
+	color: #000;
+	margin-top: 10px;
+}

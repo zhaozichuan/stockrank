@@ -1,0 +1,42 @@
+ql服务
+5
+service mysqld restart
+
+【2】修改密码字段
+1
+# 用户登录
+2
+mysql -uroot -p (直接点击回车，密码为空)
+3
+    
+4
+# 但是在5.7版本中不存在password字段，所有我们要用以下修改进行重置密码
+5
+update mysql.user set authentication_string=password('123456') where user='root';
+6
+7
+# 刷新权限
+8
+flush privileges;
+
+【3】最开始修改的配置文件my.cnf中的skip-grant-tables删除 重启mysql
+service mysqld restart
+
+【4】 当你登陆mysql之后你会发现，当你执行命令时会出现
+1
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement;
+2
+# 这是提示你需要修改密码 当你执行了
+3
+SET PASSWORD = PASSWORD('root');
+4
+# 如果出现
+5
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+6
+# 你需要执行两个参数来把mysql默认的密码强度的取消了才行 当然也可以把你的密码复杂度提高也行啊
+7
+set global validate_password_policy=0; 
+8
+set global validate_password_mixed_case_count=2;
+【5】经过以上操作，便完成了密码的变更；

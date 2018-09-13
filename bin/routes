@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the computer list
+GET     /                           controllers.HomeController.index()
+
+# Computers list (look at the default values for pagination parameters)
+GET     /computers                  controllers.HomeController.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add computer
+GET     /computers/new              controllers.HomeController.create()
+POST    /computers                  controllers.HomeController.save()
+
+# Edit existing computer
+GET     /computers/:id              controllers.HomeController.edit(id:Long)
+POST    /computers/:id              controllers.HomeController.update(id:Long)
+
+# Delete a computer
+POST    /computers/:id/delete       controllers.HomeController.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+# zzc 2018-1-16
+GET     /list1                           controllers.TController.list1(p:Int ?= 0, s ?= "time", o ?= "desc", f ?= "")
+GET     /help1                     	     controllers.TController.help1()
+GET     /qq		                   		 controllers.Cstock.q(sName:String )
+GET     /q1		                   		 controllers.Cstock.q1(code:String )
+GET     /k		                   		 controllers.Cstock_k.k(mid:String,code:String,kType:String )
+GET     /myStockList		             controllers.Cuser.myStockList(mid:String,userId:String )
+GET     /myStockAdd		                 controllers.Cuser.myStockAdd(mid:String,userId:String,StockCode:String )
+GET     /login		                     controllers.Cuser.login(mid:String,name:String,pass:String )
+GET     /reg		                     controllers.Cuser.reg(mid:String,name:String,pass:String,phone:String,level:Int)
+GET     /reg_wx		                     controllers.Cuser.reg_wx(mid:String,nickName:String,pass:String,phone:String,avatarUrl:String,gender:Int,language:String,city:String,province:String,country:String,level:Int)
+
+#Discuss 
+GET     /addDis		                     controllers.Cdiscuss.addDis(mid:String,title:String,content:String,userId:String)
+GET     /disList                         controllers.Cdiscuss.disList(mid:String,max:Int ?=5)

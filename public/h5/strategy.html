@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> 
+    <title>策略</title> 
+    <meta http-equiv="pragma" content="no-cache" /> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" /> 
+    <meta http-equiv="expires" content="0" />
+    <!--description end--> 
+    <meta name="apple-touch-fullscreen" content="yes" /> 
+    <meta name="format-detection" content="telephone=no" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" /> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <meta http-equiv="Expires" content="-1" /> 
+    <meta http-equiv="pragram" content="no-cache" /> 
+    <link rel="stylesheet" style="text/css" href="css/strategy.css?v=2" />
+  </head> 
+  <body> 
+    <!-- header start --> 
+    <header class="page-header"> 
+    </header> 
+    <!-- header end --> 
+    <!-- content start --> 
+    <section class="page-content"> 
+    <!-- header start --> 
+    <header class="content-header"> 
+        <div class="header-cont">
+        </div>
+        <script type="text/html" id="header-cont_tpl">
+            <h5><%=name%></h5>
+            <span class="g-gray">创建时间：<%=creatTime%></span>
+        </script>
+    </header> 
+    <!-- header end --> 
+
+    <section class="content-content"> 
+        <div class="chart-item" id="d-chart-day">
+            <iframe width="100%" height="100%"></iframe>
+        </div>
+    </section> 
+
+    <!--footer start--> 
+    <footer class="content-footer"> 
+        <script type="text/html" id="footer-cont_tpl">
+            <div class="item income">
+                <div class="in-item g-red total">
+                    <div class="total-in g-s24"><%=totalGet%></div>
+                    <span>总收益</span>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">日收益</span>
+                    <p><%=dayGet%></p>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">周收益</span>
+                    <p><%=weekGet%></p>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">月收益</span>
+                    <p><%=monthGet%></p>
+                </div>
+            </div>
+            <div class="item statu">
+                <div class="in-item">
+                    <span class="g-gray">当前仓位</span>
+                    <p><%=curRes%></p>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">成功率</span>
+                    <p><%=succPercent%></p>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">平均持股(天)</span>
+                    <p><%=averageKeep%></p>
+                </div>
+                <div class="in-item">
+                    <span class="g-gray">周交易数</span>
+                    <p><%=weekTrade%></p>
+                </div>
+            </div>
+        </script>
+    </footer> 
+    <!--footer end--> 
+    </section> 
+    <!-- content end --> 
+
+    <!--footer start--> 
+    <footer class="page-footer"> 
+    </footer> 
+    <!--footer end-->
+    <script type="text/javascript" src="chart/libs/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/template.js"></script>
+    <script type="text/javascript" src="js/strategy.js?v=11"></script> 
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" /> 
+    <title>个股－行情</title> 
+    <meta http-equiv="pragma" content="no-cache" /> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" /> 
+    <meta http-equiv="expires" content="0" />
+    <!--description end--> 
+    <meta name="apple-touch-fullscreen" content="yes" /> 
+    <meta name="format-detection" content="telephone=no" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" /> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <meta http-equiv="Expires" content="-1" /> 
+    <meta http-equiv="pragram" content="no-cache" /> 
+    <link rel="stylesheet" style="text/css" href="css/detail.css?v=7" />
+  </head> 
+  <body> 
+    <!-- header start --> 
+    <header class="page-header"> 
+    </header> 
+    <!-- header end --> 
+    <!-- content start --> 
+    <section class="page-content"> 
+        <!-- header start --> 
+        <header class="content-header"> 
+            <div class="header-cont"></div>
+            <script type="text/html" id="content-header_tpl">
+            <div class="data-info">
+                <div class="item i-l <%if (/\-/.test(change)) {%>g-green<%}else{%>g-red<%}%>">
+                    <h5><%=curPrice%></h5>
+                    <p>
+                        <span>
+                            <%=change%>
+                        </span>
+                        <span><%=changePercent%></span>
+                    </p>
+                </div>
+                <div class="item i-r">
+                    <div class="i-r-item">
+                        <p>最高</p>
+                        <p class="data"><%=dayHigh%></p>
+                    </div>
+                    <div class="i-r-item">
+                        <p>最低</p>
+                        <p class="data"><%=dayLow%></p>
+                    </div>
+                </div>
+                <div class="item i-r">
+                    <div class="i-r-item">
+                        <p>成交额</p>
+                        <p class="data"><%=turnover%></p>
+                    </div>
+                    <div class="i-r-item">
+                        <p>市盈率</p>
+                        <p class="data <%if (/\-/.test(volume)) {%>g-green<%}%>">
+                            <%=volume%>
+                        </p>
+                    </div>
+                </div>
+                <div class="item i-r">
+                    <div class="i-r-item">
+                        <p>换手率</p>
+                        <p class="data"><%=dayReturnPercent%></p>
+                    </div>
+                    <div class="i-r-item">
+                        <p>总市值</p>
+                        <p class="data"><%=amountOfmoney%></p>
+                    </div>
+                </div>
+            </div>
+            </script>
+        </header> 
+        <!-- header end --> 
+        <section class="content-content">
+            <div id="chart-tab">
+                <div class="d-tab-item active" id="d-tab-min">
+                    <span>分时图</span>
+                </div>
+
+                <div class="d-tab-item" id="d-tab-handicap">
+                    <span>盘口</span>
+                </div>
+
+                <div class="d-tab-item" id="d-tab-day">
+                    <span>日K</span>
+                </div>
+
+                <div class="d-tab-item" id="d-tab-week">
+                    <span>周K</span>
+                </div>
+
+                <div class="d-tab-item" id="d-tab-month">
+                    <span>月K</span>
+                </div>
+            </div>
+            <div id="chart-cont">
+                <!--分时图-->
+                <div class="chart-item active" id="d-chart-min" data-src="chart/minchart.html?">
+                    <iframe width="100%" height="100%"></iframe>
+                </div>
+
+                <!--盘口图-->
+                <div class="chart-item g-gray" id="d-chart-handicap">
+                    <div class="handicap-cont"></div>
+                    <script type="text/html" id="content-content_tpl">
+                        <div class="p50 l big">
+                            <div class="t">
+                                <div class="out">
+                                    <%for (var i = 0, len = sellItem.length; i < len; i++) { %>
+                                    <%var tempData = sellItem[i].split(',');%>
+                                    <div class="handicap-one-data">
+                                        <span>
+                                            <%if (tempData[0]) { %>
+                                                卖出<%=tempData[0]%>
+                                            <% } %>
+                                        </span>
+                                        &nbsp;&nbsp;
+                                        <span class="g-green"><%=tempData[1]%></span>
+                                        <span class="r"><%=tempData[2]%></span>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <div class="in">
+                                    <%for (var i = 0, len = buyInItem.length; i < len; i++) { %>
+                                    <%var tempData = buyInItem[i].split(',');%>
+                                    <div class="handicap-one-data">
+                                        <%if (tempData[0]) { %>
+                                            买入<%=tempData[0]%>
+                                        <% } %>
+                                        &nbsp;&nbsp;
+                                        <span class="g-green"><%=tempData[1]%></span>
+                                        <span class="r"><%=tempData[2]%></span>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="b">
+                                <div class="p50 l">
+                                    委比&nbsp;&nbsp;
+                                    <span class="g-red"><%=weibi%></span>
+                                </div>
+                                <div class="p50 r">
+                                    委差&nbsp;&nbsp;
+                                    <span class="g-<%if (/\-/.test(weicha)) {%>green<%}else{%>red<%}%>">
+                                        <%=weicha%>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p50 r big">
+                            <div class="t">
+                                <%for (var i = 0, len = otherItem.length; i < len; i++) { %>
+                                <%var tempData = otherItem[i].split(',');%>
+                                <div class="handicap-one-data">
+                                    <span><%=tempData[0]%></span>
+                                    &nbsp;&nbsp;
+                                    <span class="g-green"><%=tempData[1]%></span>
+                                    <span class="r"><%=tempData[2]%></span>
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="b">
+                                <div class="p50 l">
+                                    外盘&nbsp;&nbsp;
+                                    <span class="g-red"><%=buy%></span>
+                                </div>
+                                <div class="p50 r">
+                                    内盘&nbsp;&nbsp;
+                                    <span class="g-green"><%=sell%></span>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                </div>
+
+                <!--日k-->
+                <div class="chart-item" id="d-chart-day" data-src="chart/kchart.html?period=100&">
+                    <iframe width="100%" height="100%"></iframe>
+                </div>
+
+                <!--周k-->
+                <div class="chart-item" id="d-chart-week" data-src="chart/kchart.html?period=200&">
+                    <iframe width="100%" height="100%"></iframe>
+                </div>
+                
+                <!--月k-->
+                <div class="chart-item" id="d-chart-month" data-src="chart/kchart.html?period=300&">
+                    <iframe width="100%" height="100%"></iframe>
+                </div>
+            </div>
+        </section> 
+
+        <!--footer start--> 
+        <footer class="content-footer">
+            <div class="g-mod master g-gray">
+                <div class="master-cont"></div>
+            </div>
+            <script type="text/html" id="content-master_tpl">
+                <div class="l"><span class="g-black"><%=analystNum%></span>位分析师分析了该股票</div>
+                <div class="r">平均成本<span class="g-black"><%=avaCost%></span>元</div>
+            </script>
+        </footer> 
+        <!--footer end--> 
+    </section> 
+    <!-- content end --> 
+
+    <!--footer start--> 
+    <footer class="page-footer"> 
+    </footer> 
+
+    <script type="text/javascript" src="chart/libs/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/template.js"></script>
+    <script type="text/javascript" src="js/detail.js?v=42"></script>
+  </body>
+</html>

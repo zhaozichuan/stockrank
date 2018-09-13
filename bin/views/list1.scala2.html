@@ -1,0 +1,37 @@
+@(currentPage: io.ebean.PagedList[News], currentSortBy: String, currentOrder: String, currentFilter: String)
+
+@****************************************
+* Helper generating navigation links    *
+****************************************@
+@link(newPage:Int, newSortBy:String) = @{
+
+    var sortBy = currentSortBy
+    var order = currentOrder
+
+    if(newSortBy != null) {
+        sortBy = newSortBy
+        if(currentSortBy == newSortBy) {
+            if(currentOrder == "asc") {
+                order = "desc"
+            } else {
+                order = "asc"
+            }
+        } else {
+            order = "asc"
+        }
+    }
+
+    // Generate the link
+    //routes.TController.list(newPage, sortBy, order, currentFilter)
+
+}
+
+ <div id="actions">
+
+        <font>aaaa</font>
+
+        <a class="btn success" id="add" href="@routes.HomeController.create()">Add a new computer</a>
+
+    </div>
+
+

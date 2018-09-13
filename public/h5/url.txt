@@ -1,0 +1,24 @@
+一.文件介绍：
+    解压后里边含有detail.html(个股详情)，strategy.html(策略详情)文件，
+    两个文件所引用的资源都是相对路径，其他文件夹是detail.html和strategy.html引用的资源。
+
+二.个股详情调用：
+    客户端载入xx/static/detail.html?symbol=600030&t=1437491450365&circleTime=10
+　　　　symbol:  股票代码
+　　　　t: 当前时间戳
+　　　　circleTime: 轮询刷新页面数据频率，单位秒，如果没传默认5秒
+    客户端可调用的js方法，可暂停或开始，减少请求：
+　　开始刷新页面数据：StartRequest()
+    停止刷新页面数据：StopRequest()
+
+三.策略详情调用：
+    客户端载入xx/static/strategy.html?strategyId=1&t=1437491450365&circleTime=10
+　　　　strategyId:  策略id
+　　　　t: 当前时间戳
+　　　　circleTime: 轮询刷新页面数据频率，单位秒，如果没传默认5秒
+    客户端可调用的js方法，可暂停或开始，减少请求：
+　　开始刷新页面数据：StartRequest()
+    停止刷新页面数据：StopRequest()
+
+提示：页面载入的时候不需要调用StartRequest，StopRequest；因为页面已经自动发起请求。
+        StartRequest，StopRequest两个方法不会限制图表的请求，这块需要请二孟联系以前开发。
